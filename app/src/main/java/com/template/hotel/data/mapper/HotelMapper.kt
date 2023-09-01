@@ -1,13 +1,13 @@
 package com.template.hotel.data.mapper
 
-import com.template.hotel.data.network.AboutTheHotelDto
-import com.template.hotel.data.network.HotelDto
-import com.template.hotel.domain.AboutTheHotel
-import com.template.hotel.domain.Hotel
+import com.template.hotel.data.network.model.AboutTheHotelDto
+import com.template.hotel.data.network.model.HotelDto
+import com.template.hotel.domain.AboutTheHotelEntity
+import com.template.hotel.domain.HotelEntity
 
 class HotelMapper {
-    fun mapDtoToEntityHotel(dto: HotelDto): Hotel{
-        return Hotel(
+    fun mapDtoToEntityHotel(dto: HotelDto): HotelEntity{
+        return HotelEntity(
             id = dto.id,
             name = dto.name,
             address = dto.address,
@@ -16,11 +16,11 @@ class HotelMapper {
             rating = dto.rating,
             ratingName = dto.ratingName,
             image_urls = dto.image_urls,
-            aboutTheHotel = mapDtoToEntityAboutTheHotel(dto.aboutTheHotel)
+            aboutTheHotelEntity = mapDtoToEntityAboutTheHotel(dto.aboutTheHotel)
         )
     }
-    private fun mapDtoToEntityAboutTheHotel(dto: AboutTheHotelDto): AboutTheHotel{
-        return AboutTheHotel(
+    private fun mapDtoToEntityAboutTheHotel(dto: AboutTheHotelDto): AboutTheHotelEntity{
+        return AboutTheHotelEntity(
             description = dto.description,
             peculiarities = dto.peculiarities
         )

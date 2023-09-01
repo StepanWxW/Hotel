@@ -1,6 +1,6 @@
 package com.template.hotel.domain
 
-data class AboutTheHotel(
+data class AboutTheHotelEntity(
     val description: String,
     val peculiarities: List<String>
 )

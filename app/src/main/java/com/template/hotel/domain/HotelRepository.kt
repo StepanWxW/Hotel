@@ -1,5 +1,7 @@
 package com.template.hotel.domain
 
+import androidx.lifecycle.LiveData
+
 interface HotelRepository {
-    fun getHotel() : Hotel
+    suspend fun loadHotel() : LiveData<HotelEntity>
 }

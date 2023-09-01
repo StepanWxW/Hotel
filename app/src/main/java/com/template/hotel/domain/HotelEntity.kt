@@ -1,6 +1,6 @@
-package com.template.hotel.data.network
+package com.template.hotel.domain
 
-data class HotelDto(
+data class HotelEntity(
     val id: Int,
     val name: String,
     val address: String,
@@ -9,5 +9,5 @@ data class HotelDto(
     val rating: Int,
     val ratingName: String,
     val image_urls: List<String>,
-    val aboutTheHotel: AboutTheHotelDto
+    val aboutTheHotelEntity: AboutTheHotelEntity
 )
