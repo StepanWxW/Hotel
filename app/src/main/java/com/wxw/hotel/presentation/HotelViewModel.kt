@@ -16,7 +16,7 @@ class HotelViewModel: ViewModel() {
     val hotelRepositoryImpl = HotelRepositoryImpl()
     val getHotelUseCase = GetHotelUseCase(hotelRepositoryImpl)
 
-    private var hotelLive = MutableLiveData<HotelEntity>()
+    var hotelLive = MutableLiveData<HotelEntity>()
 
     val corut = CoroutineScope(Dispatchers.IO)
     init {

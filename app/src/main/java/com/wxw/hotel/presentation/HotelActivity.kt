@@ -10,8 +10,11 @@ class HotelActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        viewModel = ViewModelProvider(this)[HotelViewModel::class.java]
+        setContentView(R.layout.activity_hotel)
 
+        viewModel = ViewModelProvider(this)[HotelViewModel::class.java]
+        viewModel.hotelLive.observe(this){
+
+        }
     }
 }
