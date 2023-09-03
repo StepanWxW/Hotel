@@ -4,5 +4,5 @@ import androidx.lifecycle.LiveData
 import com.wxw.hotel.domain.model.HotelEntity
 
 interface HotelRepository {
-    suspend fun loadHotel() : LiveData<HotelEntity>
+    suspend fun loadHotel() : HotelEntity
 }

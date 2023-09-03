@@ -11,11 +11,11 @@ class HotelMapper {
             id = dto.id,
             name = dto.name,
             address = dto.address,
-            minimal_price = dto.minimal_price,
+            minimal_price = dto.minimalPrice,
             priceForIt = dto.priceForIt,
             rating = dto.rating,
             ratingName = dto.ratingName,
-            image_urls = dto.image_urls,
+            image_urls = dto.imageUrls,
             aboutTheHotelEntity = mapDtoToEntityAboutTheHotel(dto.aboutTheHotel)
         )
     }
