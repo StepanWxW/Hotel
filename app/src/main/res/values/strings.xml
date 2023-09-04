@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Hotel</string>
     <string name="Hotel">Отель</string>
+    <string name="name_hotel">Steigenberger Makadi</string>
 </resources>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="29dp"
+    app:cardCornerRadius="5dp"
+    app:cardBackgroundColor="#33FFC700"
+    app:cardElevation="0dp">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="29dp"
+        android:background="#33FFC700">
+
+        <ImageView
+            android:id="@+id/imageStar"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:src="@drawable/icon_star"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginStart="10dp"/>
+
+        <TextView
+            android:id="@+id/textRating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFA800"
+            android:layout_marginStart="2dp"
+            app:layout_constraintStart_toEndOf="@+id/imageStar"
+            app:layout_constraintTop_toTopOf="@+id/imageStar"
+            app:layout_constraintBottom_toBottomOf="@+id/imageStar"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="10dp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
