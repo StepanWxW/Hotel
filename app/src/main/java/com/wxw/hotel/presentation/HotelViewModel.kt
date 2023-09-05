@@ -1,6 +1,6 @@
 package com.wxw.hotel.presentation
 
-import android.util.Log
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.wxw.hotel.data.repository.HotelRepositoryImpl
@@ -15,14 +15,15 @@ class HotelViewModel: ViewModel() {
     val hotelRepositoryImpl = HotelRepositoryImpl()
     val getHotelUseCase = GetHotelUseCase(hotelRepositoryImpl)
 
-    var hotelLive = MutableLiveData<HotelEntity>()
+    private var hotelLive = MutableLiveData<HotelEntity>()
+    val hotelLiveData: LiveData<HotelEntity> = hotelLive
 
     init {
         CoroutineScope(Dispatchers.IO).launch {
-            load()
+            loadHotel()
         }
     }
-    private suspend fun load(){
+    private suspend fun loadHotel(){
         val hotel = getHotelUseCase.loadHotel()
         hotelLive.postValue(hotel)
     }

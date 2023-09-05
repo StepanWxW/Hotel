@@ -12,5 +12,4 @@ class HotelRepositoryImpl: HotelRepository {
         val hotelDto = apiService.getHotelDto()
         return mapper.mapDtoToEntityHotel(hotelDto)
     }
-
 }

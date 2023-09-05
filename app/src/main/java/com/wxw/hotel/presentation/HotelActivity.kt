@@ -2,58 +2,73 @@ package com.wxw.hotel.presentation
 
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
-import androidx.viewpager2.widget.ViewPager2
 import com.google.android.flexbox.FlexDirection
 import com.google.android.flexbox.FlexWrap
 import com.google.android.flexbox.FlexboxLayoutManager
-import com.tbuonomo.viewpagerdotsindicator.DotsIndicator
 import com.wxw.hotel.R
+import com.wxw.hotel.databinding.ActivityHotelBinding
+import com.wxw.hotel.presentation.adapter.ImageAdapter
+import com.wxw.hotel.presentation.adapter.PeculiaritiesAdapter
 
 
 class HotelActivity : AppCompatActivity() {
     private lateinit var viewModel: HotelViewModel
-
-    private lateinit var recyclerView: RecyclerView
-
+    
+    private lateinit var binding : ActivityHotelBinding
+    
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_hotel)
+        binding = ActivityHotelBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         viewModel = ViewModelProvider(this)[HotelViewModel::class.java]
-        val viewPager2 = findViewById<ViewPager2>(R.id.viewPager)
-        val dotsIndicator = findViewById<DotsIndicator>(R.id.dotsIndicator)
-        val textRating = findViewById<TextView>(R.id.textRating)
-        val placeButton = findViewById<Button>(R.id.placeButton)
-        val textPrice = findViewById<TextView>(R.id.textPrice)
-        val textViewDescription = findViewById<TextView>(R.id.textViewDescription)
+        val viewPagerImg = binding.hotelCardLayout.carouselLayout.viewPager
+        setSettingItemDetails()
+        val recyclerViewPeculiarities = recyclerViewSettingPeculiarities()
 
-        recyclerView = findViewById(R.id.recyclerView)
+        viewModel.hotelLiveData.observe(this){
+            val adapterImg = ImageAdapter(it.imageUrls)
+            viewPagerImg.adapter = adapterImg
+            with(binding.hotelCardLayout) {
+                carouselLayout.dotsIndicator.setViewPager2(viewPagerImg)
+                ratingCard.textRating.text = "${it.rating} ${it.ratingName}"
+                placeButton.text = it.address
+                textPrice.text = "от " + it.minimalPrice.toString() + " ₽"
+            }
+            val adapterPeculiarities = PeculiaritiesAdapter(it.aboutTheHotelEntity.peculiarities)
+            recyclerViewPeculiarities.adapter = adapterPeculiarities
+            binding.aboutHotelCardLayout.textViewDescription.text = it.aboutTheHotelEntity.description
+        }
+        binding.selectionRoom.setOnClickListener {
+            val intent = Intent(this, RoomsActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
+    private fun setSettingItemDetails() {
+        with(binding.aboutHotelCardLayout.itemDetails) {
+            itemButtonFacilities.name.text = "Удобства"
+            itemButtonFacilities.imageButton.setImageResource(R.drawable.emoji_happy)
+            itemButtonIncluded.name.text = "Что включено"
+            itemButtonIncluded.imageButton.setImageResource(R.drawable.tick_square)
+            itemButtonNotIncluded.name.text = "Что не включено"
+            itemButtonNotIncluded.imageButton.setImageResource(R.drawable.close_square)
+        }
+    }
+
+    private fun recyclerViewSettingPeculiarities(): RecyclerView {
+        val recyclerViewPeculiarities = binding.aboutHotelCardLayout.recyclerView
         val layoutManager = FlexboxLayoutManager(this)
         layoutManager.flexDirection = FlexDirection.ROW
         layoutManager.flexWrap = FlexWrap.WRAP
-        recyclerView.layoutManager = layoutManager
-
-        viewModel.hotelLive.observe(this){
-            val adapterImg = ImageAdapter(it.imageUrls)
-            viewPager2.adapter = adapterImg
-            dotsIndicator.setViewPager2(viewPager2)
-            textRating.text = "${it.rating} ${it.ratingName}"
-            placeButton.text = it.address
-            textPrice.text = "от "  + it.minimalPrice.toString() + " ₽"
-
-            val adapterPeculiarities = PeculiaritiesAdapter(it.aboutTheHotelEntity.peculiarities)
-            recyclerView.adapter = adapterPeculiarities
-            textViewDescription.text = it.aboutTheHotelEntity.description
-        }
-
-
-
+        recyclerViewPeculiarities.layoutManager = layoutManager
+        return recyclerViewPeculiarities
     }
 }

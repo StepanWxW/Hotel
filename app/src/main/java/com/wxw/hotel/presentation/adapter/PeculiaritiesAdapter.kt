@@ -1,4 +1,4 @@
-package com.wxw.hotel.presentation
+package com.wxw.hotel.presentation.adapter
 
 import android.view.LayoutInflater
 import android.view.View

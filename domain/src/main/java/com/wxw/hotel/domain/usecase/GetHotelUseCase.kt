@@ -1,7 +1,5 @@
 package com.wxw.hotel.domain.usecase
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import com.wxw.hotel.domain.model.HotelEntity
 import com.wxw.hotel.domain.repository.HotelRepository
 

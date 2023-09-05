@@ -20,12 +20,11 @@
             app:layout_constraintBottom_toBottomOf="parent" />
 
         <TextView
-            android:id="@+id/textName"
+            android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:textSize="16sp"
-            android:text="?attr/buttonText1"
             android:textColor="@color/black"
             app:layout_constraintStart_toEndOf="@+id/imageButton"
             android:layout_marginStart="12dp"
@@ -49,7 +48,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/arrow" />
+            app:srcCompat="@drawable/arrow_right" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>
