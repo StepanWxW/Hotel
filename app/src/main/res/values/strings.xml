@@ -2,8 +2,9 @@
     <string name="app_name">Hotel</string>
     <string name="Hotel">Отель</string>
     <string name="name_hotel">Steigenberger Makadi</string>
-    <string name="tour_with_flight">за тур с перелетом</string>
     <string name="about_hotel">Об отеле</string>
     <string name="essentials">Самое необходимое</string>
     <string name="to_room_selection">К выбору номера</string>
+    <string name="choose_number">Выбрать номер</string>
+    <string name="about_room">Подробнее о номере</string>
 </resources>

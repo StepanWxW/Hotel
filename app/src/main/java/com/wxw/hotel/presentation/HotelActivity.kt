@@ -4,13 +4,8 @@ package com.wxw.hotel.presentation
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.RecyclerView
-import com.google.android.flexbox.FlexDirection
-import com.google.android.flexbox.FlexWrap
-import com.google.android.flexbox.FlexboxLayoutManager
 import com.wxw.hotel.R
 import com.wxw.hotel.databinding.ActivityHotelBinding
 import com.wxw.hotel.presentation.adapter.ImageAdapter
@@ -31,7 +26,8 @@ class HotelActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this)[HotelViewModel::class.java]
         val viewPagerImg = binding.hotelCardLayout.carouselLayout.viewPager
         setSettingItemDetails()
-        val recyclerViewPeculiarities = recyclerViewSettingPeculiarities()
+        val recyclerViewPeculiarities = PeculiaritiesAdapter
+            .getRecyclerViewSettings(binding.aboutHotelCardLayout.recyclerView, this)
 
         viewModel.hotelLiveData.observe(this){
             val adapterImg = ImageAdapter(it.imageUrls)
@@ -41,6 +37,7 @@ class HotelActivity : AppCompatActivity() {
                 ratingCard.textRating.text = "${it.rating} ${it.ratingName}"
                 placeButton.text = it.address
                 textPrice.text = "от " + it.minimalPrice.toString() + " ₽"
+                textPriceForIt.text= it.priceForIt
             }
             val adapterPeculiarities = PeculiaritiesAdapter(it.aboutTheHotelEntity.peculiarities)
             recyclerViewPeculiarities.adapter = adapterPeculiarities
@@ -61,14 +58,5 @@ class HotelActivity : AppCompatActivity() {
             itemButtonNotIncluded.name.text = "Что не включено"
             itemButtonNotIncluded.imageButton.setImageResource(R.drawable.close_square)
         }
-    }
-
-    private fun recyclerViewSettingPeculiarities(): RecyclerView {
-        val recyclerViewPeculiarities = binding.aboutHotelCardLayout.recyclerView
-        val layoutManager = FlexboxLayoutManager(this)
-        layoutManager.flexDirection = FlexDirection.ROW
-        layoutManager.flexWrap = FlexWrap.WRAP
-        recyclerViewPeculiarities.layoutManager = layoutManager
-        return recyclerViewPeculiarities
     }
 }

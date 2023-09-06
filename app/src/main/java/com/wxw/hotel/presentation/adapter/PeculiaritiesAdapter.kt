@@ -1,10 +1,14 @@
 package com.wxw.hotel.presentation.adapter
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.flexbox.FlexDirection
+import com.google.android.flexbox.FlexWrap
+import com.google.android.flexbox.FlexboxLayoutManager
 import com.wxw.hotel.R
 
 
@@ -28,5 +32,15 @@ class PeculiaritiesAdapter(private val data: List<String>) :
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val textView: TextView = itemView.findViewById(R.id.textView)
+    }
+
+    companion object {
+        fun getRecyclerViewSettings(recyclerView: RecyclerView, context: Context): RecyclerView {
+            val layoutManager = FlexboxLayoutManager(context)
+            layoutManager.flexDirection = FlexDirection.ROW
+            layoutManager.flexWrap = FlexWrap.WRAP
+            recyclerView.layoutManager = layoutManager
+            return recyclerView
+        }
     }
 }
