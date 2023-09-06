@@ -1,4 +1,4 @@
-package com.wxw.hotel.data.network.model
+package com.wxw.hotel.data.network.model.hotel
 
 data class AboutTheHotelDto(
     val description: String,

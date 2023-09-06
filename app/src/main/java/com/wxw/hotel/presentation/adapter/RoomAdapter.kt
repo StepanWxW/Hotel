@@ -1,9 +1,11 @@
 package com.wxw.hotel.presentation.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -12,6 +14,8 @@ import androidx.viewpager2.widget.ViewPager2
 import com.tbuonomo.viewpagerdotsindicator.DotsIndicator
 import com.wxw.hotel.R
 import com.wxw.hotel.domain.model.RoomEntity
+import com.wxw.hotel.presentation.BookingActivity
+import com.wxw.hotel.presentation.RoomsActivity
 
 class RoomAdapter(private val rooms: List<RoomEntity>,private val context: Context) :
     RecyclerView.Adapter<RoomAdapter.ViewHolder>() {
@@ -33,6 +37,10 @@ class RoomAdapter(private val rooms: List<RoomEntity>,private val context: Conte
 
         val adapterPeculiarities = PeculiaritiesAdapter(room.peculiarities)
         holder.recyclerViewPeculiarities.adapter = adapterPeculiarities
+        holder.selectionRoom.setOnClickListener{
+            val intent = Intent(context, BookingActivity::class.java)
+            context.startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int {
@@ -48,6 +56,6 @@ class RoomAdapter(private val rooms: List<RoomEntity>,private val context: Conte
             .getRecyclerViewSettings(itemView.findViewById(R.id.recyclerViewPeculiarities), context)
         val textPrice: TextView = itemView.findViewById(R.id.textPrice)
         val textPricePer: TextView = itemView.findViewById(R.id.textPricePer)
-//        val selectionRoom: Button = itemView.findViewById(R.id.changeRoom)
+        val selectionRoom: Button = itemView.findViewById(R.id.changeRoom)
     }
 }

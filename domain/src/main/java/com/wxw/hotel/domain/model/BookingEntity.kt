@@ -1,10 +1,10 @@
-package com.wxw.hotel.data.network.model
+package com.wxw.hotel.domain.model
 
-class BookingDto (
+class BookingEntity (
     val id: Int,
     val hotelName: String,
     val hotelAddress: String,
-    val horating: Int,
+    val rating: Int,
     val ratingName: String,
     val departure: String,
     val arrivalCountry: String,
@@ -15,5 +15,5 @@ class BookingDto (
     val nutrition: String,
     val tourPrice: Int,
     val fuelCharge: Int,
-    val service_charge: Int
-)
+    val serviceCharge: Int
+    )

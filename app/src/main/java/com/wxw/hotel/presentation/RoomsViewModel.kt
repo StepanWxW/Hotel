@@ -23,7 +23,7 @@ class RoomsViewModel: ViewModel() {
         }
     }
     private suspend fun loadRooms(){
-        val hotel = getRoomsUseCase.loadRooms()
-        roomLive.postValue(hotel)
+        val rooms = getRoomsUseCase.loadRooms()
+        roomLive.postValue(rooms)
     }
 }

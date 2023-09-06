@@ -1,4 +1,4 @@
-package com.wxw.hotel.data.network.model
+package com.wxw.hotel.data.network.model.hotel
 
 import com.google.gson.annotations.SerializedName
 

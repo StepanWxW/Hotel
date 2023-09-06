@@ -1,8 +1,8 @@
 package com.wxw.hotel.data.network
 
-import com.wxw.hotel.data.network.model.BookingDto
-import com.wxw.hotel.data.network.model.HotelDto
-import com.wxw.hotel.data.network.model.RoomsResponse
+import com.wxw.hotel.data.network.model.booking.BookingDto
+import com.wxw.hotel.data.network.model.hotel.HotelDto
+import com.wxw.hotel.data.network.model.room.RoomsResponse
 import retrofit2.http.GET
 
 interface ApiService {
