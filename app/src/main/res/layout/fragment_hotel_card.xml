@@ -28,56 +28,30 @@
             android:layout_marginEnd="16dp"/>
 
         <include
-            android:id="@+id/rating_card"
-            layout="@layout/item_grade"
+            android:id="@+id/item_rating"
+            layout="@layout/item_rating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            app:layout_constraintStart_toStartOf="@+id/carousel_layout"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/carousel_layout" />
-
-        <TextView
-            android:id="@+id/textViewNameHotel"
-            android:text="@string/name_hotel"
-            style="@style/TextStyle22BlackDisplay"
-            app:layout_constraintStart_toStartOf="@+id/rating_card"
-            app:layout_constraintTop_toBottomOf="@+id/rating_card" />
-
-        <Button
-            android:id="@+id/placeButton"
-            android:layout_width="wrap_content"
-            android:layout_height="28dp"
-            android:layout_marginTop="8dp"
-            android:background="?android:attr/selectableItemBackground"
-            android:clickable="false"
-            android:focusable="false"
-            android:fontFamily="@font/sf_pro_display"
-            android:gravity="start"
-            android:paddingStart="0dp"
-            android:paddingTop="0dp"
-            android:paddingEnd="0dp"
-            android:paddingBottom="0dp"
-            android:textColor="#0D72FF"
-            android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="@+id/textViewNameHotel"
-            app:layout_constraintTop_toBottomOf="@+id/textViewNameHotel" />
 
         <TextView
             android:id="@+id/textPrice"
             style="@style/TextStyle30BlackDisplay"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/placeButton"
-            app:layout_constraintTop_toBottomOf="@+id/placeButton"
+            app:layout_constraintStart_toStartOf="@+id/carousel_layout"
+            app:layout_constraintTop_toBottomOf="@+id/item_rating"
+
             android:layout_marginBottom="16dp"/>
 
         <TextView
             android:id="@+id/textPriceForIt"
             style="@style/TextStyle16GrayDisplay"
             android:layout_marginStart="8dp"
+            android:layout_marginBottom="4dp"
+            android:textColor="@color/grey"
             app:layout_constraintBottom_toBottomOf="@+id/textPrice"
-            app:layout_constraintStart_toEndOf="@+id/textPrice"
-            app:layout_constraintTop_toBottomOf="@+id/placeButton"
-            android:layout_marginBottom="4dp"/>
+            app:layout_constraintStart_toEndOf="@+id/textPrice" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

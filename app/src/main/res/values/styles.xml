@@ -6,6 +6,7 @@
         <item name="android:layout_marginTop">8dp</item>
         <item name="android:fontFamily">@font/sf_pro_display</item>
         <item name="android:textSize">22sp</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <style name="TextStyle30BlackDisplay">
@@ -13,7 +14,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:fontFamily">@font/sf_pro_display</item>
         <item name="android:textSize">30sp</item>
-        <item name="android:color">@color/black</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <style name="TextStyle16GrayDisplay">
@@ -21,7 +22,18 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:fontFamily">@font/sf_pro_display</item>
         <item name="android:textSize">16sp</item>
-        <item name="android:color">@color/grey</item>
+        <item name="android:textColor">@color/grey</item>
+    </style>
+    <style name="TextStyle16GrayDisplayMarginTop16" parent="TextStyle16GrayDisplay">
+        <item name="android:layout_marginTop">16dp</item>
+    </style>
+
+    <style name="TextStyle16BlackDisplay">
+        <item name="android:layout_width">203dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/sf_pro_display</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <style name="ButtonStyleBlue">
@@ -30,5 +42,7 @@
         <item name="android:backgroundTint">@color/blue</item>
         <item name="android:textColor">@android:color/white</item>
     </style>
+
+
 
 </resources>

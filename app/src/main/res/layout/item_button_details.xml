@@ -21,11 +21,9 @@
 
         <TextView
             android:id="@+id/name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/TextStyle16BlackDisplay"
             android:layout_marginEnd="16dp"
             android:textSize="16sp"
-            android:textColor="@color/black"
             app:layout_constraintStart_toEndOf="@+id/imageButton"
             android:layout_marginStart="12dp"
             app:layout_constraintTop_toTopOf="parent" />

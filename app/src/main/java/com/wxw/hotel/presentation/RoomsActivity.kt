@@ -32,6 +32,5 @@ class RoomsActivity : AppCompatActivity() {
         backButton.setOnClickListener {
             finish()
         }
-
     }
 }

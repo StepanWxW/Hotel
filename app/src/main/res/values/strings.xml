@@ -1,10 +1,17 @@
 <resources>
     <string name="app_name">Hotel</string>
-    <string name="Hotel">Отель</string>
+    <string name="hotel">Отель</string>
     <string name="name_hotel">Steigenberger Makadi</string>
     <string name="about_hotel">Об отеле</string>
     <string name="essentials">Самое необходимое</string>
     <string name="to_room_selection">К выбору номера</string>
     <string name="choose_number">Выбрать номер</string>
     <string name="about_room">Подробнее о номере</string>
+    <string name="booking">Бронирование</string>
+    <string name="departure">Вылет из</string>
+    <string name="сountry_city">Страна, город</string>
+    <string name="dates">Даты</string>
+    <string name="number_of_nights">Кол-во ночей</string>
+    <string name="room">Номер</string>
+    <string name="food">Питание</string>
 </resources>

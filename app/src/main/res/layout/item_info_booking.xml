@@ -1,0 +1,113 @@
+<androidx.cardview.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="12dp"
+    android:layout_marginTop="8dp"
+    app:cardElevation="0dp"
+    android:background="@drawable/rounded_background"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/titleDeparture"
+            style="@style/TextStyle16GrayDisplayMarginTop16"
+            android:layout_marginStart="16dp"
+            android:text="@string/departure"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/departure"
+            style="@style/TextStyle16BlackDisplay"
+            android:layout_marginStart="156dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/titleDeparture" />
+
+        <TextView
+            android:id="@+id/titleArrivalCountry"
+            style="@style/TextStyle16GrayDisplayMarginTop16"
+            android:text="@string/сountry_city"
+            app:layout_constraintStart_toStartOf="@+id/titleDeparture"
+            app:layout_constraintTop_toBottomOf="@+id/departure" />
+
+        <TextView
+            android:id="@+id/arrivalCountry"
+            style="@style/TextStyle16BlackDisplay"
+            app:layout_constraintStart_toStartOf="@+id/departure"
+            app:layout_constraintTop_toTopOf="@+id/titleArrivalCountry" />
+
+        <TextView
+            android:id="@+id/titleDate"
+            style="@style/TextStyle16GrayDisplayMarginTop16"
+            android:text="@string/dates"
+            app:layout_constraintStart_toStartOf="@+id/titleArrivalCountry"
+            app:layout_constraintTop_toBottomOf="@+id/arrivalCountry" />
+
+        <TextView
+            android:id="@+id/date"
+            style="@style/TextStyle16BlackDisplay"
+            app:layout_constraintStart_toStartOf="@+id/arrivalCountry"
+            app:layout_constraintTop_toTopOf="@+id/titleDate" />
+
+        <TextView
+            android:id="@+id/titleNumberOfNights"
+            style="@style/TextStyle16GrayDisplayMarginTop16"
+            android:text="@string/number_of_nights"
+            app:layout_constraintStart_toStartOf="@+id/titleDate"
+            app:layout_constraintTop_toBottomOf="@+id/date" />
+
+        <TextView
+            android:id="@+id/numberOfNights"
+            style="@style/TextStyle16BlackDisplay"
+            app:layout_constraintStart_toStartOf="@+id/date"
+            app:layout_constraintTop_toTopOf="@+id/titleNumberOfNights" />
+
+        <TextView
+            android:id="@+id/titleHotel"
+            style="@style/TextStyle16GrayDisplayMarginTop16"
+            android:text="@string/hotel"
+            app:layout_constraintStart_toStartOf="@+id/titleNumberOfNights"
+            app:layout_constraintTop_toBottomOf="@+id/numberOfNights" />
+
+        <TextView
+            android:id="@+id/hotel"
+            style="@style/TextStyle16BlackDisplay"
+            android:text="@string/name_hotel"
+            app:layout_constraintStart_toStartOf="@+id/numberOfNights"
+            app:layout_constraintTop_toTopOf="@+id/titleHotel" />
+
+        <TextView
+            android:id="@+id/titleNumber"
+            style="@style/TextStyle16GrayDisplayMarginTop16"
+            android:text="@string/room"
+            app:layout_constraintStart_toStartOf="@+id/titleHotel"
+            app:layout_constraintTop_toBottomOf="@+id/hotel" />
+
+        <TextView
+            android:id="@+id/room"
+            style="@style/TextStyle16BlackDisplay"
+            app:layout_constraintStart_toStartOf="@+id/hotel"
+            app:layout_constraintTop_toTopOf="@+id/titleNumber" />
+
+        <TextView
+            android:id="@+id/titleNutrition"
+            style="@style/TextStyle16GrayDisplayMarginTop16"
+            android:text="@string/food"
+            app:layout_constraintStart_toStartOf="@+id/titleNumber"
+            app:layout_constraintTop_toBottomOf="@+id/room" />
+
+        <TextView
+            android:id="@+id/nutrition"
+            style="@style/TextStyle16BlackDisplay"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/room"
+            app:layout_constraintTop_toTopOf="@+id/titleNutrition" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

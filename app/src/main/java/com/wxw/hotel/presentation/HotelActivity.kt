@@ -34,8 +34,8 @@ class HotelActivity : AppCompatActivity() {
             viewPagerImg.adapter = adapterImg
             with(binding.hotelCardLayout) {
                 carouselLayout.dotsIndicator.setViewPager2(viewPagerImg)
-                ratingCard.textRating.text = "${it.rating} ${it.ratingName}"
-                placeButton.text = it.address
+                itemRating.ratingCard.textRating.text = "${it.rating} ${it.ratingName}"
+                itemRating.placeButton.text = it.address
                 textPrice.text = "от " + it.minimalPrice.toString() + " ₽"
                 textPriceForIt.text= it.priceForIt
             }
