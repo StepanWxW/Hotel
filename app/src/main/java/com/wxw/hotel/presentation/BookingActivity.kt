@@ -7,7 +7,9 @@ import androidx.lifecycle.ViewModelProvider
 import com.wxw.hotel.R
 import com.wxw.hotel.databinding.ActivityBookingBinding
 import com.wxw.hotel.presentation.adapter.delegateAdapter.itemDelegate.DelegateAdapterBooking
+import com.wxw.hotel.presentation.adapter.delegateAdapter.itemDelegate.PhoneItemDelegate
 import com.wxw.hotel.presentation.adapter.delegateAdapter.model.InfoBookingItem
+import com.wxw.hotel.presentation.adapter.delegateAdapter.model.PhoneItem
 import com.wxw.hotel.presentation.adapter.delegateAdapter.model.RatingItem
 
 class BookingActivity : AppCompatActivity() {
@@ -35,6 +37,7 @@ class BookingActivity : AppCompatActivity() {
                 room = it.room,
                 nutrition = it.nutrition
             ))
+            items.add(PhoneItem())
             delegateAdapterBooking.items = items
             recyclerViewBooking.adapter = delegateAdapterBooking
 

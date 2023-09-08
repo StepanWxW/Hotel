@@ -24,7 +24,7 @@ class RoomsActivity : AppCompatActivity() {
         val recyclerViewRooms = binding.recyclerViewRooms
 
         viewModel.roomLiveData.observe(this){
-            val adapterRooms = RoomAdapter(it, this)
+            val adapterRooms = RoomAdapter(it)
             recyclerViewRooms.adapter = adapterRooms
         }
 

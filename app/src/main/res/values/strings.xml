@@ -14,4 +14,8 @@
     <string name="number_of_nights">Кол-во ночей</string>
     <string name="room">Номер</string>
     <string name="food">Питание</string>
+    <string name="buyer_information">Информация о покупателе</string>
+    <string name="phone_number">Номер телефона</string>
+    <string name="email">Почта</string>
+    <string name="this_data">Эти данные никому не передаются. После оплаты мы вышлем чек на указанный вами номер и почту</string>
 </resources>

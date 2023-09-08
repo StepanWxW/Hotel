@@ -64,7 +64,7 @@
                 app:layout_constraintStart_toStartOf="@+id/about_hotel_card_layout"
                 app:layout_constraintTop_toBottomOf="@+id/about_hotel_card_layout">
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/selectionRoom"
                     style="@style/ButtonStyleBlue"
                     android:layout_marginStart="16dp"

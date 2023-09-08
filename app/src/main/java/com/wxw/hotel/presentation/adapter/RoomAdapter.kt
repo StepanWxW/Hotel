@@ -15,7 +15,7 @@ import com.wxw.hotel.R
 import com.wxw.hotel.domain.model.RoomEntity
 import com.wxw.hotel.presentation.BookingActivity
 
-class RoomAdapter(private val rooms: List<RoomEntity>,private val context: Context) :
+class RoomAdapter(private val rooms: List<RoomEntity>) :
     RecyclerView.Adapter<RoomAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -36,9 +36,10 @@ class RoomAdapter(private val rooms: List<RoomEntity>,private val context: Conte
         val adapterPeculiarities = PeculiaritiesAdapter(room.peculiarities)
         holder.recyclerViewPeculiarities.adapter = adapterPeculiarities
         holder.selectionRoom.setOnClickListener{
-            val intent = Intent(context, BookingActivity::class.java)
-            context.startActivity(intent)
+            val intent = Intent(holder.itemView.context, BookingActivity::class.java)
+            holder.itemView.context.startActivity(intent)
         }
+
     }
 
     override fun getItemCount(): Int {
@@ -51,7 +52,7 @@ class RoomAdapter(private val rooms: List<RoomEntity>,private val context: Conte
         val dotsIndicator: DotsIndicator = constraintLayout.findViewById(R.id.dotsIndicator)
         val textViewNameRoom: TextView = itemView.findViewById(R.id.textViewNameRoom)
         val recyclerViewPeculiarities: RecyclerView = PeculiaritiesAdapter
-            .getRecyclerViewSettings(itemView.findViewById(R.id.recyclerViewPeculiarities), context)
+            .getRecyclerViewSettings(itemView.findViewById(R.id.recyclerViewPeculiarities), itemView.context)
         val textPrice: TextView = itemView.findViewById(R.id.textPrice)
         val textPricePer: TextView = itemView.findViewById(R.id.textPricePer)
         val selectionRoom: Button = itemView.findViewById(R.id.changeRoom)
