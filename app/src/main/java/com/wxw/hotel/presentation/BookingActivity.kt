@@ -11,6 +11,7 @@ import com.wxw.hotel.presentation.adapter.delegateAdapter.itemDelegate.PhoneItem
 import com.wxw.hotel.presentation.adapter.delegateAdapter.model.InfoBookingItem
 import com.wxw.hotel.presentation.adapter.delegateAdapter.model.PhoneItem
 import com.wxw.hotel.presentation.adapter.delegateAdapter.model.RatingItem
+import com.wxw.hotel.presentation.adapter.delegateAdapter.model.TouristItem
 
 class BookingActivity : AppCompatActivity() {
     private lateinit var viewModel: BookingViewModel
@@ -38,6 +39,7 @@ class BookingActivity : AppCompatActivity() {
                 nutrition = it.nutrition
             ))
             items.add(PhoneItem())
+            items.add(TouristItem("Первый турист"))
             delegateAdapterBooking.items = items
             recyclerViewBooking.adapter = delegateAdapterBooking
 

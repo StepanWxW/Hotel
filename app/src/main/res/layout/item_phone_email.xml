@@ -34,7 +34,7 @@
 
         <include
             android:id="@+id/cardView2Email"
-            layout="@layout/item_email"
+            layout="@layout/item_field_email"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"

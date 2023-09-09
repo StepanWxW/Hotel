@@ -17,5 +17,18 @@
     <string name="buyer_information">Информация о покупателе</string>
     <string name="phone_number">Номер телефона</string>
     <string name="email">Почта</string>
+    <string name="name">Имя</string>
     <string name="this_data">Эти данные никому не передаются. После оплаты мы вышлем чек на указанный вами номер и почту</string>
+    <string name="name_hint">Иван</string>
+    <string name="surname_hint">Иванов</string>
+    <string name="surname">Фамилия</string>
+    <string name="phone_example">+7 (988) 888–88-88</string>
+    <string name="date_of_birth">Дата рождения</string>
+    <string name="hint_date_of_birth">15.03.2002</string>
+    <string name="Citizenship">Гражданство</string>
+    <string name="hint_citizenship">Российская Федерация</string>
+    <string name="number_passport">Номер загранпаспорта</string>
+    <string name="hint_passport_number">52 0056743</string>
+    <string name="passport_validity_period">Срок действия загранпаспорта</string>
+    <string name="hint_passport_validity_period">11.10.2025</string>
 </resources>

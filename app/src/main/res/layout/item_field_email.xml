@@ -23,15 +23,10 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/inputEmail"
-            android:layout_width="0dp"
-            android:layout_height="18dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:background="@null"
-            android:textSize="16sp"
-            android:fontFamily="@font/sf_pro_display"
+            style="@style/ItemFieldEditStyle"
+            android:hint="example@mail.ru"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/textNumberPhone"

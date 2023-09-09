@@ -8,5 +8,6 @@ class DelegateAdapterBooking : ListDelegationAdapter<List<Any>>() {
         delegatesManager.addDelegate(RatingItemDelegate())
         delegatesManager.addDelegate(InfoBookingItemDelegate())
         delegatesManager.addDelegate(PhoneItemDelegate())
+        delegatesManager.addDelegate(TouristDelegate())
     }
 }
