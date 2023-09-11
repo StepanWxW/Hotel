@@ -31,4 +31,13 @@
     <string name="hint_passport_number">52 0056743</string>
     <string name="passport_validity_period">Срок действия загранпаспорта</string>
     <string name="hint_passport_validity_period">11.10.2025</string>
+    <string name="tour">Тур</string>
+    <string name="fuel_surcharge">Топливный сбор</string>
+    <string name="service_free">Сервисный сбор</string>
+    <string name="total">К оплате</string>
+    <string name="currency_symbol"> ₽</string>
+    <string name="add_tourist">Добавить туриста</string>
+    <string name="order_has_been_paid">Заказ оплачен</string>
+    <string name="order_in_progress">Ваш заказ принят в работу</string>
+    <string name="super_">Супер!</string>
 </resources>

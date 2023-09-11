@@ -7,9 +7,11 @@ import androidx.lifecycle.ViewModelProvider
 import com.wxw.hotel.R
 import com.wxw.hotel.databinding.ActivityBookingBinding
 import com.wxw.hotel.presentation.adapter.delegateAdapter.itemDelegate.DelegateAdapterBooking
-import com.wxw.hotel.presentation.adapter.delegateAdapter.itemDelegate.PhoneItemDelegate
+import com.wxw.hotel.presentation.adapter.delegateAdapter.model.AddTouristItem
 import com.wxw.hotel.presentation.adapter.delegateAdapter.model.InfoBookingItem
+import com.wxw.hotel.presentation.adapter.delegateAdapter.model.InfoPriceItem
 import com.wxw.hotel.presentation.adapter.delegateAdapter.model.PhoneItem
+import com.wxw.hotel.presentation.adapter.delegateAdapter.model.PriceButtonItem
 import com.wxw.hotel.presentation.adapter.delegateAdapter.model.RatingItem
 import com.wxw.hotel.presentation.adapter.delegateAdapter.model.TouristItem
 
@@ -40,12 +42,14 @@ class BookingActivity : AppCompatActivity() {
             ))
             items.add(PhoneItem())
             items.add(TouristItem("Первый турист"))
+            items.add(AddTouristItem())
+            items.add(InfoPriceItem(it.tourPrice, it.fuelCharge, it.serviceCharge))
+            items.add(PriceButtonItem(it.tourPrice+it.fuelCharge+it.serviceCharge))
             delegateAdapterBooking.items = items
             recyclerViewBooking.adapter = delegateAdapterBooking
-
         }
 
-        val backButton = findViewById<View>(R.id.backButton)
+        val backButton = findViewById<View>(R.id.backButtonBooking)
         backButton.setOnClickListener {
             finish()
         }

@@ -1,0 +1,11 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape>
+            <solid android:color="@color/blue" />
+            <corners android:radius="6dp" />
+        </shape>
+    </item>
+    <item android:top="4dp" android:right="4dp" android:bottom="4dp" android:left="4dp">
+        <bitmap android:src="@drawable/blue_plus" />
+    </item>
+</layer-list>

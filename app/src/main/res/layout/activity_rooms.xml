@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <include
-            android:id="@+id/backButton"
+            android:id="@+id/backButtonBooking"
             layout="@layout/custom_back_button" />
 
         <TextView

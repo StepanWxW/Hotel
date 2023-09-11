@@ -28,7 +28,7 @@ class RoomsActivity : AppCompatActivity() {
             recyclerViewRooms.adapter = adapterRooms
         }
 
-        val backButton = findViewById<View>(R.id.backButton)
+        val backButton = findViewById<View>(R.id.backButtonBooking)
         backButton.setOnClickListener {
             finish()
         }
