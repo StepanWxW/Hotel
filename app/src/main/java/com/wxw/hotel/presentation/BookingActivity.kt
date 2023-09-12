@@ -11,6 +11,7 @@ import com.wxw.hotel.databinding.ActivityBookingBinding
 import com.wxw.hotel.presentation.adapter.delegateAdapter.itemDelegate.DelegateClickListener
 import com.wxw.hotel.presentation.adapter.delegateAdapter.itemDelegate.DelegateAdapterBooking
 import com.wxw.hotel.presentation.adapter.delegateAdapter.itemDelegate.PhoneItemDelegate
+import com.wxw.hotel.presentation.adapter.delegateAdapter.itemDelegate.TouristDelegate
 import com.wxw.hotel.presentation.adapter.delegateAdapter.model.AddTouristItem
 import com.wxw.hotel.presentation.adapter.delegateAdapter.model.InfoBookingItem
 import com.wxw.hotel.presentation.adapter.delegateAdapter.model.InfoPriceItem
@@ -71,14 +72,11 @@ class BookingActivity : AppCompatActivity(), DelegateClickListener {
         }
     }
     override fun onPayClick() {
-        for (phoneItem in PhoneItemDelegate.allInstances) {
-            if (phoneItem.isEmailValid() && phoneItem.isPhoneValid()) {
-                val intent = Intent(this, OrderActivity::class.java)
-                startActivity(intent)
-            } else{
-                phoneItem.updateCardViewBackgroundEmail()
-                phoneItem.updateCardViewBackgroundPhone()
-            }
+        val touristCheck = TouristDelegate.checkAllTouristItemsValid()
+        val phoneCheck = PhoneItemDelegate.checkAllTouristItemsValid()
+        if(touristCheck && phoneCheck){
+            val intent = Intent(this, OrderActivity::class.java)
+            startActivity(intent)
         }
     }
 

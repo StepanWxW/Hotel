@@ -41,12 +41,13 @@ class PhoneItemDelegate : AbsListItemAdapterDelegate<PhoneItem, Any, PhoneItemDe
         private val cardView2Email: CardView = itemView.findViewById(R.id.cardView2Email)
         private val cardView2Phone: CardView = itemView.findViewById(R.id.item_phone)
 
-        fun bind(item: PhoneItem) {
+        init {
             inputEmail.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
                 if (!hasFocus) {
                     val email = inputEmail.text.toString()
                     emailValid = isEmailValid(email)
-                    updateCardViewBackgroundEmail()
+                    val colorResId = if (emailValid) R.color.light_grey2 else R.color.not_valid
+                    cardView2Email.setCardBackgroundColor(ContextCompat.getColor(itemView.context, colorResId))
                 }
             }
 
@@ -66,32 +67,47 @@ class PhoneItemDelegate : AbsListItemAdapterDelegate<PhoneItem, Any, PhoneItemDe
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
                 override fun afterTextChanged(editable: Editable?) {
                     if(inputPhone.isDone){
-                        updateCardViewBackgroundPhone()
+                        val colorResId = if (phoneValid) R.color.light_grey2 else R.color.not_valid
+                        cardView2Phone.setCardBackgroundColor(ContextCompat.getColor(itemView.context, colorResId))
                     }
                     phoneValid = inputPhone.isDone
                 }
             })
         }
-        fun updateCardViewBackgroundEmail() {
-            val colorResId = if (emailValid) R.color.light_grey2 else R.color.not_valid
-            cardView2Email.setCardBackgroundColor(ContextCompat.getColor(itemView.context, colorResId))
-        }
-        fun updateCardViewBackgroundPhone() {
-            val colorResId = if (phoneValid) R.color.light_grey2 else R.color.not_valid
-            cardView2Phone.setCardBackgroundColor(ContextCompat.getColor(itemView.context, colorResId))
-        }
+        fun bind(item: PhoneItem) {}
         fun isEmailValid(email: String): Boolean {
             emailValid = android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
             return emailValid
         }
+        fun checkValid(): Boolean {
+            val isEmailValid = isEmailValid()
+            val isPhoneValid = isPhoneValid()
+            return isEmailValid && isPhoneValid
+        }
+
         fun isEmailValid(): Boolean {
+            if (!emailValid){
+                cardView2Email.setCardBackgroundColor(ContextCompat.getColor(itemView.context, R.color.not_valid))
+            }
             return emailValid
         }
         fun isPhoneValid(): Boolean {
+            if(!phoneValid){
+                cardView2Phone.setCardBackgroundColor(ContextCompat.getColor(itemView.context, R.color.not_valid))
+            }
             return phoneValid
         }
     }
     companion object {
         val allInstances = mutableListOf<PhoneItemViewHolder>()
+        fun checkAllTouristItemsValid(): Boolean {
+            var allValid = true
+            allInstances.forEach { touristItem ->
+                if (!touristItem.checkValid()) {
+                    allValid = false
+                }
+            }
+            return allValid
+        }
     }
 }
