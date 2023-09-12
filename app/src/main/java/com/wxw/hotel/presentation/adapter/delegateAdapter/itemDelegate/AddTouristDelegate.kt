@@ -7,7 +7,7 @@ import com.hannesdorfmann.adapterdelegates4.AbsListItemAdapterDelegate
 import com.wxw.hotel.databinding.ItemAddTouristBinding
 import com.wxw.hotel.presentation.adapter.delegateAdapter.model.AddTouristItem
 
-class AddTouristDelegate : AbsListItemAdapterDelegate<AddTouristItem, Any, AddTouristDelegate.AddTouristItemViewHolder>() {
+class AddTouristDelegate(private val clickListener: DelegateClickListener) : AbsListItemAdapterDelegate<AddTouristItem, Any, AddTouristDelegate.AddTouristItemViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup): AddTouristItemViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -21,11 +21,15 @@ class AddTouristDelegate : AbsListItemAdapterDelegate<AddTouristItem, Any, AddTo
 
     override fun onBindViewHolder(item: AddTouristItem, holder: AddTouristItemViewHolder, payloads: MutableList<Any>) {
         holder.bind(item)
+        holder.bindAddTouristClickListener()
     }
 
     inner class AddTouristItemViewHolder(private val binding: ItemAddTouristBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: AddTouristItem) {
-
+        fun bind(item: AddTouristItem) {}
+        fun bindAddTouristClickListener() {
+            binding.buttonAddTourist.setOnClickListener {
+                clickListener.onAddTouristClick()
+            }
         }
     }
 }

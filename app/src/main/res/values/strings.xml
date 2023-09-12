@@ -40,4 +40,22 @@
     <string name="order_has_been_paid">Заказ оплачен</string>
     <string name="order_in_progress">Ваш заказ принят в работу</string>
     <string name="super_">Супер!</string>
+    <string name="order_confirmation_message">Подтверждение заказа №%1\$s может занять некоторое время (от 1 до суток). Как только мы получим ответ от туроператора, на вашу почту придет уведомление.</string>
+    <string name="price_format">от %1\$s ₽</string>
+    <string name="facilities_label">Удобства</string>
+    <string name="included_label">Что включено</string>
+    <string name="not_included_label">Что не включено</string>>
+    <string-array name="tourist_names">
+        <item>Первый</item>
+        <item>Второй</item>
+        <item>Третий</item>
+        <item>Четвертый</item>
+        <item>Пятый</item>
+        <item>Шестой</item>
+        <item>Седьмой</item>
+        <item>Восьмой</item>
+        <item>Девятый</item>
+        <item>Десятый</item>
+    </string-array>
+    <string name="tourist_description">%s турист</string>
 </resources>

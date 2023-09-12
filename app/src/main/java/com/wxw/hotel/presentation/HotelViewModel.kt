@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModel
 import com.wxw.hotel.data.repository.HotelRepositoryImpl
 import com.wxw.hotel.domain.model.HotelEntity
 import com.wxw.hotel.domain.usecase.GetHotelUseCase
-
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

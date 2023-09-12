@@ -1,6 +1,5 @@
 package com.wxw.hotel.presentation
 
-
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
@@ -11,37 +10,36 @@ import com.wxw.hotel.databinding.ActivityHotelBinding
 import com.wxw.hotel.presentation.adapter.ImageAdapter
 import com.wxw.hotel.presentation.adapter.PeculiaritiesAdapter
 
-
 class HotelActivity : AppCompatActivity() {
     private lateinit var viewModel: HotelViewModel
     
     private lateinit var binding : ActivityHotelBinding
     
-    @SuppressLint("SetTextI18n")
+    @SuppressLint("SetTextI18n", "StringFormatInvalid")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHotelBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         viewModel = ViewModelProvider(this)[HotelViewModel::class.java]
-        val viewPagerImg = binding.hotelCardLayout.carouselLayout.viewPager
+        val viewPagerImg = binding.carouselLayout.viewPager
         setSettingItemDetails()
         val recyclerViewPeculiarities = PeculiaritiesAdapter
-            .getRecyclerViewSettings(binding.aboutHotelCardLayout.recyclerView, this)
+            .getRecyclerViewSettings(binding.recyclerViewPeculiarities, this)
 
         viewModel.hotelLiveData.observe(this){
             val adapterImg = ImageAdapter(it.imageUrls)
             viewPagerImg.adapter = adapterImg
-            with(binding.hotelCardLayout) {
+            with(binding) {
                 carouselLayout.dotsIndicator.setViewPager2(viewPagerImg)
                 itemRating.ratingCard.textRating.text = "${it.rating} ${it.ratingName}"
                 itemRating.placeButton.text = it.address
-                textPrice.text = "от " + it.minimalPrice.toString() + " ₽"
+                textPrice.text = getString(R.string.price_format, it.minimalPrice)
                 textPriceForIt.text= it.priceForIt
             }
             val adapterPeculiarities = PeculiaritiesAdapter(it.aboutTheHotelEntity.peculiarities)
             recyclerViewPeculiarities.adapter = adapterPeculiarities
-            binding.aboutHotelCardLayout.textViewDescription.text = it.aboutTheHotelEntity.description
+            binding.textViewDescription.text = it.aboutTheHotelEntity.description
         }
         binding.selectionRoom.setOnClickListener {
             val intent = Intent(this, RoomsActivity::class.java)
@@ -50,12 +48,12 @@ class HotelActivity : AppCompatActivity() {
     }
 
     private fun setSettingItemDetails() {
-        with(binding.aboutHotelCardLayout.itemDetails) {
-            itemButtonFacilities.name.text = "Удобства"
+        with(binding.itemDetails) {
+            itemButtonFacilities.name.text = getString(R.string.facilities_label)
             itemButtonFacilities.imageButton.setImageResource(R.drawable.emoji_happy)
-            itemButtonIncluded.name.text = "Что включено"
+            itemButtonIncluded.name.text = getString(R.string.included_label)
             itemButtonIncluded.imageButton.setImageResource(R.drawable.tick_square)
-            itemButtonNotIncluded.name.text = "Что не включено"
+            itemButtonNotIncluded.name.text = getString(R.string.not_included_label)
             itemButtonNotIncluded.imageButton.setImageResource(R.drawable.close_square)
         }
     }

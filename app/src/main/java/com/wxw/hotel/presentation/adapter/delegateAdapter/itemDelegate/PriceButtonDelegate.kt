@@ -1,16 +1,13 @@
 package com.wxw.hotel.presentation.adapter.delegateAdapter.itemDelegate
 
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.hannesdorfmann.adapterdelegates4.AbsListItemAdapterDelegate
 import com.wxw.hotel.databinding.ItemButtonPriceBinding
-import com.wxw.hotel.presentation.OrderActivity
 import com.wxw.hotel.presentation.adapter.delegateAdapter.model.PriceButtonItem
 
-class PriceButtonDelegate : AbsListItemAdapterDelegate<PriceButtonItem, Any, PriceButtonDelegate.PriceButtonItemViewHolder>() {
+class PriceButtonDelegate(private val clickListener: DelegateClickListener) : AbsListItemAdapterDelegate<PriceButtonItem, Any, PriceButtonDelegate.PriceButtonItemViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup): PriceButtonItemViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -35,8 +32,7 @@ class PriceButtonDelegate : AbsListItemAdapterDelegate<PriceButtonItem, Any, Pri
         fun bind(item: PriceButtonItem) {
             binding.priceTotalButton.text = item.totalPrice
             binding.priceTotalButton.setOnClickListener {
-                val intent = Intent(binding.root.context, OrderActivity::class.java)
-                binding.root.context.startActivity(intent)
+                clickListener.onPayClick()
             }
         }
     }

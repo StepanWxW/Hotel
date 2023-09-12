@@ -79,4 +79,16 @@
         <item name="android:layout_marginStart">16dp</item>
     </style>
 
+    <style name="AppToolbar" parent="Widget.AppCompat.Toolbar">
+        <item name="android:background">@color/white</item>
+        <item name="android:minHeight">?attr/actionBarSize</item>
+        <item name="android:theme">?attr/actionBarTheme</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">57dp</item>
+    </style>
+    <style name="AppConstraintLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/backgroundActivity</item>
+    </style>
 </resources>
