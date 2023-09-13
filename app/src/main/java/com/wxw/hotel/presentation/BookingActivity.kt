@@ -3,8 +3,6 @@ package com.wxw.hotel.presentation
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.wxw.hotel.R
 import com.wxw.hotel.databinding.ActivityBookingBinding
@@ -19,9 +17,9 @@ import com.wxw.hotel.presentation.adapter.delegateAdapter.model.PhoneItem
 import com.wxw.hotel.presentation.adapter.delegateAdapter.model.PriceButtonItem
 import com.wxw.hotel.presentation.adapter.delegateAdapter.model.RatingItem
 import com.wxw.hotel.presentation.adapter.delegateAdapter.model.TouristItem
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class BookingActivity : AppCompatActivity(), DelegateClickListener {
-    private lateinit var viewModel: BookingViewModel
 
     private lateinit var binding : ActivityBookingBinding
     private val items = mutableListOf<Any>()
@@ -29,6 +27,7 @@ class BookingActivity : AppCompatActivity(), DelegateClickListener {
     private lateinit var delegateAdapterBooking: DelegateAdapterBooking
     private var touristIndex  = 0
     private lateinit var touristNames: MutableList<String>
+    private val viewModel: BookingViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +35,6 @@ class BookingActivity : AppCompatActivity(), DelegateClickListener {
         setContentView(binding.root)
 
         touristNames = resources.getStringArray(R.array.tourist_names).toMutableList()
-        viewModel = ViewModelProvider(this)[BookingViewModel::class.java]
         recyclerViewBooking = binding.recyclerViewBooking
         delegateAdapterBooking = DelegateAdapterBooking(this)
 

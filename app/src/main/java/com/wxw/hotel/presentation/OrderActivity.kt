@@ -4,14 +4,14 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.lifecycle.ViewModelProvider
 import com.wxw.hotel.R
 import com.wxw.hotel.databinding.ActivityOrderBinding
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class OrderActivity : AppCompatActivity() {
 
-    private lateinit var viewModel: OrderViewModel
+    private val viewModel by viewModel<OrderViewModel>()
     private lateinit var binding: ActivityOrderBinding
 
     @SuppressLint("StringFormatInvalid", "StringFormatMatches")
@@ -19,8 +19,6 @@ class OrderActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityOrderBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        viewModel = ViewModelProvider(this)[OrderViewModel::class.java]
 
         val intRandom: Int? = viewModel.intRandomLiveData.value
 

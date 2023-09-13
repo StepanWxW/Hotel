@@ -3,12 +3,12 @@ package com.wxw.hotel.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.lifecycle.ViewModelProvider
 import com.wxw.hotel.databinding.ActivityRoomsBinding
 import com.wxw.hotel.presentation.adapter.RoomAdapter
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class RoomsActivity : AppCompatActivity() {
-    private lateinit var viewModel: RoomsViewModel
+    private val viewModel: RoomsViewModel by viewModel()
 
     private lateinit var binding : ActivityRoomsBinding
 
@@ -17,7 +17,6 @@ class RoomsActivity : AppCompatActivity() {
         binding = ActivityRoomsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        viewModel = ViewModelProvider(this)[RoomsViewModel::class.java]
         val recyclerViewRooms = binding.recyclerViewRooms
 
         viewModel.roomLiveData.observe(this){
