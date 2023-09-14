@@ -126,4 +126,4 @@
 
 Для работы с сетью была использована библиотека Retrofit.
 
-[![Видео работы приложения](https://cdn-cf-east.streamable.com/image/9habs9.jpg)](https://streamable.com/9habs9?src=player-page-share)
+[![Видео работы приложения]](https://streamable.com/9habs9?src=player-page-share)
