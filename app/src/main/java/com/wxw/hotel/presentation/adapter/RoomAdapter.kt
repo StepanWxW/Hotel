@@ -1,6 +1,5 @@
 package com.wxw.hotel.presentation.adapter
 
-import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
@@ -10,7 +9,7 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
-import com.tbuonomo.viewpagerdotsindicator.DotsIndicator
+import com.tbuonomo.viewpagerdotsindicator.SpringDotsIndicator
 import com.wxw.hotel.R
 import com.wxw.hotel.domain.model.RoomEntity
 import com.wxw.hotel.presentation.BookingActivity
@@ -49,7 +48,7 @@ class RoomAdapter(private val rooms: List<RoomEntity>) :
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val constraintLayout: ConstraintLayout = itemView.findViewById(R.id.carousel_layout_room)
         val viewPagerImg: ViewPager2 = constraintLayout.findViewById(R.id.viewPager)
-        val dotsIndicator: DotsIndicator = constraintLayout.findViewById(R.id.dotsIndicator)
+        val dotsIndicator: SpringDotsIndicator = constraintLayout.findViewById(R.id.dotsIndicator)
         val textViewNameRoom: TextView = itemView.findViewById(R.id.textViewNameRoom)
         val recyclerViewPeculiarities: RecyclerView = PeculiaritiesAdapter
             .getRecyclerViewSettings(itemView.findViewById(R.id.recyclerViewPeculiarities), itemView.context)

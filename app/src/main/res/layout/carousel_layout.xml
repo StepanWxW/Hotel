@@ -12,8 +12,7 @@
         app:cardCornerRadius="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="16dp">
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/viewPager"
@@ -22,17 +21,22 @@
 
     </androidx.cardview.widget.CardView>
 
-    <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
+
+
+    <com.tbuonomo.viewpagerdotsindicator.SpringDotsIndicator
         android:id="@+id/dotsIndicator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        app:dotsClickable="true"
         app:dotsColor="@color/black"
+        app:dotsCornerRadius="8dp"
         app:dotsSize="8dp"
+        app:dotsSpacing="4dp"
+        app:dotsStrokeColor="@color/grey"
+        app:dotsStrokeWidth="2dp"
         app:layout_constraintBottom_toBottomOf="@+id/cardView"
-        app:layout_constraintEnd_toEndOf="@+id/cardView"
-        app:layout_constraintStart_toStartOf="@+id/cardView"
-        app:selectedDotColor="#808080"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+
         android:elevation="3dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
